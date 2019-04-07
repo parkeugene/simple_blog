@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN"
+        "http://www.eclipse.org/jetty/configure_9_3.dtd">
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+    <Set name="sessionHandler">
+        <New class="org.eclipse.jetty.server.session.SessionHandler">
+            <Arg>
+                <New class="org.eclipse.jetty.server.session.HashSessionManager">
+                    <Set name="storeDirectory">target/tmp</Set>
+                </New>
+            </Arg>
+        </New>
+    </Set>
+    <Call name="setInitParameter">
+        <Arg>org.eclipse.jetty.servlet.SessionCookie</Arg>
+        <Arg>XSESSIONID</Arg>
+    </Call>
+    <Call name="setInitParameter">
+        <Arg>org.eclipse.jetty.servlet.SessionIdPathParameterName</Arg>
+        <Arg>xsessionid</Arg>
+    </Call>
+    <Get name="sessionHandler">
+        <Set name="sessionManager">
+            <New class="org.eclipse.jetty.server.session.HashSessionManager">
+                <Set name="sessionCookie">XSESSIONID</Set>
+                <Set name="sessionIdPathParameterName">xsessionid</Set>
+            </New>
+        </Set>
+    </Get>
+    <New id="mysql" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg></Arg>
+        <Arg>jdbc/mysql</Arg>
+        <Arg>
+            <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
+                <!--<Set name="driverClassName">org.some.Driver</Set>-->
+                <Set name="Url">jdbc:mysql://localhost:3306/blog</Set>
+                <Set name="User">root</Set>
+                <!--<Set name="Password">kieeuser!!</Set>-->
+                <!--<Set name="validationQuery">SELECT 1</Set>-->
+            </New>
+        </Arg>
+    </New>
+</Configure>

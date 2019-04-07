@@ -1,0 +1,3 @@
+#set( $page_scripts='<script src="./scripts/blogs.js"></script>')
+
+$import.read('_form.jsp')
