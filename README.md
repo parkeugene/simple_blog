@@ -10,6 +10,7 @@ Formvalidation.io
 - https://formvalidation.io
 => 현재 쓰고 있는 버전은 하위 버전으로 API가 많이 다름
 
+```
 CREATE DATABASE blog DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE USER 'user'@'210.94.173.%' IDENTIFIED BY 'Password123!!';
@@ -47,3 +48,4 @@ CREATE TABLE `articles` (
   `writer` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 |
+```
