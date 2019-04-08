@@ -13,13 +13,12 @@ Formvalidation.io
 ```
 CREATE DATABASE blog DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-CREATE USER 'user'@'210.94.173.%' IDENTIFIED BY 'Password123!!';
+
 CREATE USER 'user'@'localhost' IDENTIFIED BY 'Password123!!';
 CREATE USER 'user'@'127.0.0.1' IDENTIFIED BY 'Password123!!';
 
 grant all privileges on blog.* to 'user'@'127.0.0.1';
 grant all privileges on blog.* to 'user'@'localhost';
-grant all privileges on blog.* to 'user'@'210.94.173.%';
 
 $> mysql -u root;
 $> use blog;
